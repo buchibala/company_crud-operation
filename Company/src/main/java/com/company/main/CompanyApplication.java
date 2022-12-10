@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan("com.company.*")
 @EnableJpaRepositories("com.company.repository")
 @EntityScan(basePackages = {"com.company.model"})
+
 public class CompanyApplication {
 
 	public static void main(String[] args) {
