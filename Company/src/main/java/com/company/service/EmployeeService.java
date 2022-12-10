@@ -27,7 +27,6 @@ public class EmployeeService {
 	}
 	public Employee addemp(Employee employee) {
 		employeeRepository.save(employee);
-		branchRepository.saveAll(employee.getBranch());
 		return employee;
 	}
 	public Optional<Employee> getemp(Integer empid) {
