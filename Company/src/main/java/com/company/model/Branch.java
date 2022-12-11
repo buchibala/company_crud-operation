@@ -1,5 +1,6 @@
 package com.company.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,7 +13,8 @@ public class Branch {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Integer branchid;
+	@Column(name="branchid")
+	public Integer bid;
 	public String branchname;
 	public String area;
 	public String city;
@@ -29,12 +31,15 @@ public class Branch {
 		this.city = city;
 		this.pincode = pincode;
 	}
-	public Integer getBranchid() {
-		return branchid;
+	
+	public Integer getBid() {
+		return bid;
 	}
-	public void setBranchid(Integer branchid) {
-		this.branchid = branchid;
+
+	public void setBid(Integer bid) {
+		this.bid = bid;
 	}
+
 	public String getBranchname() {
 		return branchname;
 	}

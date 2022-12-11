@@ -26,11 +26,17 @@ public class EmployeeService {
 		
 	}
 	public Employee addemp(Employee employee) {
-		employeeRepository.save(employee);
+		
+		Branch br=new Branch();
+		branchRepository.save( br);
+		employeeRepository.save (employee);
+		
 		return employee;
 	}
 	public Optional<Employee> getemp(Integer empid) {
 		Optional<Employee> emp = employeeRepository.findById(empid);
+		Branch br=new Branch();
+		branchRepository.save( br);
 		return emp;
 	}
 

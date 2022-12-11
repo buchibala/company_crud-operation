@@ -11,7 +11,6 @@ import com.company.model.Employee;
 @Repository
 public interface BranchRepository extends JpaRepository<Branch,Integer>{
 
-	Employee saveAll(Integer bid);
 
 	
 

@@ -1,6 +1,5 @@
 package com.company.model;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 
@@ -31,12 +30,10 @@ public class Employee {
 	public String shift;
 	public Integer bid;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="bid")
+	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@JoinColumn(name="branchid")
 	@JsonIgnore
-	private Set <Branch> branch;
-	
-	
+	private Branch branch;
 	
 	
 	public Integer getBid() {
@@ -45,10 +42,10 @@ public class Employee {
 	public void setBid(Integer bid) {
 		this.bid = bid;
 	}
-	public Set<Branch> getBranch() {
+	public Branch getBranch() {
 		return branch;
 	}
-	public void setBranch(Set<Branch> branch) {
+	public void setBranch(Branch branch) {
 		this.branch = branch;
 	}
 	public Integer getEmpid() {
