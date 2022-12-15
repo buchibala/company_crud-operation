@@ -1,69 +1,70 @@
 package com.company.model;
 
+import java.io.Serializable;
+import java.util.Optional;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+/**
+ * @author balar
+ *
+ */
 @Entity
 @Table(name="branch")
-public class Branch {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+public class Branch{
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="branchid")
-	public Integer bid;
+	public Integer branchid;
 	public String branchname;
-	public String area;
-	public String city;
-	public Integer pincode;
 	
 	public Branch() {
 		
 	}
-	
-	public Branch( String branchname, String area, String city, Integer pincode) {
+	public Branch(String branchname) {
 		super();
 		this.branchname = branchname;
-		this.area = area;
-		this.city = city;
-		this.pincode = pincode;
 	}
-	
-	public Integer getBid() {
-		return bid;
+	public Integer getBranchid() {
+		return branchid;
 	}
-
-	public void setBid(Integer bid) {
-		this.bid = bid;
+	public void setBranchid(Integer branchid) {
+		this.branchid = branchid;
 	}
-
 	public String getBranchname() {
 		return branchname;
 	}
 	public void setBranchname(String branchname) {
 		this.branchname = branchname;
 	}
-	public String getArea() {
-		return area;
+	@Override
+	public String toString() {
+		return "Branch [branchid=" + branchid + ", branchname=" + branchname + "]";
 	}
-	public void setArea(String area) {
-		this.area = area;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public Integer getPincode() {
-		return pincode;
-	}
-	public void setPincode(Integer pincode) {
-		this.pincode = pincode;
-	}
+	
+	
+	
+	
+	
+	
 	
 
 }
